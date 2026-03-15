@@ -1,16 +1,16 @@
-# E-Learning Platform (Spring Boot + React)
+# EduNova (Spring Boot + React)
 
-Backend REST APIs and a separate React SPA for a modular Learning Management System (LMS).
+EduNova is a modular Learning Management System (LMS) with a Spring Boot REST API in `backend/` and a React SPA in `frontend/`.
 
 ## Highlights
-- **LMS core**: Courses, lessons, content materials, and enrollments with progress tracking.
-- **Learning materials**: Videos, documents, slides, quizzes, assignments, interactive assets attached to courses.
-- **User management**: Administrators, instructors, and learners can register, login, and operate with role-aware permissions.
-- **Communication tools**: Topic-based threads plus email/chat-style messages so students and teachers can converse.
-- **Assessments**: Quizzes/exams/assignments, submission records, feedback, and grading.
-- **Progress reporting**: Lesson completions, time-on-task, quiz scores aggregated per learner.
-- **Postgres persistence** with Spring Data/JPA and sample data for courses, materials, assessments, progress, and messages.
-- **React frontend** under `frontend/` provides dashboards, course browsing, communications, and enrollment forms.
+- **Core LMS**: Courses, lessons, materials, enrollments, and progress tracking.
+- **User roles**: Admins, instructors, and students with role-aware permissions.
+- **Course taxonomy**: Category management and instructor ownership per course.
+- **Assignments**: Instructor-created assignments with student submissions and grading.
+- **Quizzes**: Quiz creation, question/answer banks, and student attempts with scoring.
+- **Discussion forum**: Course-based discussion threads and messages.
+- **Postgres persistence** with Spring Data/JPA plus sample data (courses, quizzes, assignments, progress, and messages).
+- **React frontend** under `frontend/` showcasing course discovery, discussions, assessments, and progress.
 
 ## Backend runtime
 
@@ -19,28 +19,30 @@ Backend REST APIs and a separate React SPA for a modular Learning Management Sys
 - PostgreSQL 14+ running locally or remotely
 
 ### Configuration
-Spring Boot relies on `src/main/resources/application.properties`. Override defaults with environment variables:
+Spring Boot relies on `backend/src/main/resources/application.properties`. Override defaults with environment variables:
 
 | Env var | Purpose | Default |
 | --- | --- | --- |
-| `SPRING_DATASOURCE_URL` | JDBC URL | `jdbc:postgresql://localhost:5432/elearning` |
-| `SPRING_DATASOURCE_USERNAME` | DB user | `elearning` |
-| `SPRING_DATASOURCE_PASSWORD` | DB password | `elearning` |
+| `SPRING_DATASOURCE_URL` | JDBC URL | `jdbc:postgresql://localhost:5432/edunova` |
+| `SPRING_DATASOURCE_USERNAME` | DB user | `postgres` |
+| `SPRING_DATASOURCE_PASSWORD` | DB password | `Rukundo` |
 
 Ensure the configured user has privileges to create tables, or pre-create the schema.
 
 ### Commands
 
 ```
+cd backend
 mvn -q clean package
 mvn spring-boot:run
 ```
 
-Endpoints:
+Key endpoints:
 - `/api/auth/register` and `/api/auth/login` for user onboarding.
-- `/api/courses`, `/api/courses/{id}` plus lesson/material routes.
-- `/api/enrollments` to enroll students.
-- `/api/progress`, `/api/assessments`, `/api/communications`, and `/api/materials` for the remaining LMS flows.
+- `/api/courses`, `/api/categories`, and lesson/material routes for course management.
+- `/api/assignments` for assignments, submissions, and grading.
+- `/api/quizzes` for quizzes, questions, and attempts.
+- `/api/enrollments`, `/api/progress`, and `/api/communications` for the learner journey.
 - SpringDoc UI: `/swagger-ui/index.html`
 
 ## React frontend
@@ -60,7 +62,8 @@ Adjust the API base URL via `frontend/.env` (see template) if the backend runs o
 ## Testing
 
 ```
+cd backend
 mvn -q test
 ```
 
-> *Tests currently fail in this environment because Maven lacks permission to create `C:\Users\CodexSandboxOffline\.m2\repository`. Ensure a writable Maven local repository exists before running.*
+> Tests currently fail in this environment because Maven lacks permission to create `C:\Users\CodexSandboxOffline\.m2\repository`. Ensure a writable Maven local repository exists before running.
