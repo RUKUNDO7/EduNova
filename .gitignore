@@ -1,9 +1,9 @@
 /.idea
-/target
+/backend/target
 /frontend/node_modules
 /frontend/dist
 *.iml
 frontend/.env.example
 frontend/package-lock.json
-src/test
-src/main/resources/application.properties
+/backend/src/test
+/backend/src/main/resources/application.properties
