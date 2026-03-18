@@ -1,9 +1,47 @@
-/.idea
-/backend/target
-/frontend/node_modules
-/frontend/dist
+# IDE and Editor Files
+.idea/
 *.iml
-frontend/.env.example
-frontend/package-lock.json
-/backend/src/test
-/backend/src/main/resources/application.properties
+*.iws
+*.ipr
+.vscode/
+.classpath
+.project
+.settings/
+bin/
+nbproject/
+revapi-report.json
+
+# Build and Distribution
+target/
+build/
+out/
+.gradle/
+dist/
+
+# Logs and Temporary Files
+*.log
+logs/
+tmp/
+temp/
+
+# OS Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Project Specific
+/backend/.env
+/backend/HELP.md
+/backend/.mvn/wrapper/maven-wrapper.jar
+/.mvn/wrapper/maven-wrapper.jar
+
+# Keystore / Certificates
+*.jks
+*.p12
+*.crt
+*.pem
+
+# Do NOT ignore these important files
+!/backend/src/main/resources/application.properties
+!/backend/src/test/
+!**/src/test/**
