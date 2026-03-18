@@ -1,30 +1,31 @@
-# EduNova (Spring Boot)
+# EduNova
 
-EduNova is a modular Learning Management System (LMS) with a Spring Boot REST API in erride defaults with environment variables:
+**EduNova** is an online learning platform where teachers create courses and students learn through a simple web API.  
 
-Ensure the configured user has privileges to create tables, or pre-create the schema.
+---
 
-### Commands
+## Features
 
-```
-cd backend
-mvn -q clean package
-mvn spring-boot:run
-```
+- User accounts with secure JWT authentication  
+- Courses & categories with lessons (videos, PDFs, etc.)  
+- Assignments & grading  
+- Quizzes and scoring  
+- Enrollments and progress tracking  
+- Reviews & ratings  
+- Bookmarks  
+- Announcements  
+- Messaging between teachers and students  
 
-Key endpoints:
-- `/api/auth/register` and `/api/auth/login` for user onboarding.
-- `/api/courses`, `/api/categories`, and lesson/material routes for course management.
-- `/api/assignments` for assignments, submissions, and grading.
-- `/api/quizzes` for quizzes, questions, and attempts.
-- `/api/enrollments`, `/api/progress`, and `/api/communications` for the learner journey.
-- SpringDoc UI: `/swagger-ui/index.html`
+---
 
-## Testing
+## Tech Stack
 
-```
-cd backend
-mvn -q test
-```
+- **Language:** Java 17  
+- **Framework:** Spring Boot 3.2  
+- **Security:** Spring Security + JWT  
+- **Database:** PostgreSQL  
+- **ORM:** Spring Data JPA (Hibernate)  
+- **API Docs:** Swagger UI / SpringDoc  
+- **Build Tool:** Maven  
 
-> Tests currently fail in this environment because Maven lacks permission to create `C:\Users\CodexSandboxOffline\.m2\repository`. Ensure a writable Maven local repository exists before running.
+---
