@@ -30,12 +30,11 @@ Thumbs.db
 desktop.ini
 
 # Project Specific
-/backend/.env
-/backend/HELP.md
-/backend/.mvn/wrapper/maven-wrapper.jar
-/.mvn/wrapper/maven-wrapper.jar
-
-# Keystore / Certificates
+backend/.env
+backend/HELP.md
+backend/.mvn/wrapper/maven-wrapper.jar
+backend/src/test/resources/
+backend/src/test/
 *.jks
 *.p12
 *.crt
