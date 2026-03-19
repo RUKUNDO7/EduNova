@@ -39,8 +39,3 @@ backend/src/test/
 *.p12
 *.crt
 *.pem
-
-# Do NOT ignore these important files
-!/backend/src/main/resources/application.properties
-!/backend/src/test/
-!**/src/test/**
