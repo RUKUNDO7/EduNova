@@ -53,12 +53,12 @@ public class CourseService {
     }
 
     @Transactional(readOnly = true)
-    public List<CourseSummaryDTO> listCourses(Level level, boolean published) {
+    public List<CourseSummaryDTO> listCourses(Level level, boolean includeDrafts) {
         List<Course> courses;
-        if (published) {
-            courses = courseRepository.findByPublishedTrue();
-        } else {
+        if (includeDrafts) {
             courses = courseRepository.findAll();
+        } else {
+            courses = courseRepository.findByPublishedTrue();
         }
 
         if (level != null) {
